@@ -6,6 +6,10 @@
 
 #[derive(Drop, Copy)]
 enum Message { // TODO: implement the message variant types based on their usage below
+    Quit,
+    ChangeColor: (usize, usize , usize), 
+    Echo: felt252,
+    Move: (x: felt252,y: felt252),
 }
 
 #[derive(Drop, Copy)]
