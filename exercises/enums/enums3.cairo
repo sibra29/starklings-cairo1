@@ -5,11 +5,11 @@
 // I AM NOT DONE
 
 #[derive(Drop, Copy)]
-enum Message { // TODO: implement the message variant types based on their usage below
+enum Message { // TODO: implement the message variant types based on their usage below 
     Quit,
     ChangeColor: (usize, usize , usize), 
     Echo: felt252,
-    Move: (x: felt252,y: felt252),
+    Move: Point, //point.. which i guess is a struct consisting of two x and y 
 }
 
 #[derive(Drop, Copy)]
@@ -54,6 +54,14 @@ impl StateImpl of StateTrait {
     fn process(
         ref self: State, message: Message
     ) { // TODO: create a match expression to process the different message variants
+        match message {
+            Message::ChangeColor(new_color) => self.change_color((u8, u8, u8)) ,
+            Message::Echo(s) => self.echo(s),
+            Message::Move(p) => {
+                p.StateTrait;
+            },
+            Message::Quit => self.quit(),
+        }
     }
 }
 
